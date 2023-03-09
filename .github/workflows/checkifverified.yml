@@ -1,0 +1,17 @@
+name: Check If Verification Works
+on:
+  workflow_dispatch: {}
+  jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Unity - Activate
+        uses: game-ci/unity-activate@v2.0.0
+        with:
+          unity-version: 2019.4.28f1
+          unity-serial: ${{ secrets.UNITY_SERIAL }}
+          unity-username: ${{ secrets.UNITY_USERNAME }}
+          unity-password: ${{ secrets.UNITY_PASSWORD }}
